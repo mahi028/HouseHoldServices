@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+        }
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        header h3 {
+            font-size: 18px;
+            color: #555;
+            margin: 5px 0 0 0;
+        }
+        .customer-details, .service-requests {
+            margin-bottom: 20px;
+        }
+        .customer-details h2, .service-requests h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        table th {
+            background-color: #f4f4f4;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Monthly Report for {{ customer.user.name }}</h1>
+        <h3>Customer ID: {{ customer.cust_uid }}</h3>
+    </header>
+
+    <section class="customer-details">
+        <h2>Customer Details</h2>
+        <p><strong>Name:</strong> {{ customer.user.name }}</p>
+        <p><strong>Email:</strong> {{ customer.user.email }}</p>
+        <p><strong>Address:</strong> {{ customer.address }}</p>
+        <p><strong>Pin Code:</strong> {{ customer.pin_code }}</p>
+        <p><strong>Date Joined:</strong> {{ customer.user.date_created }}</p>
+    </section>
+
+    <section class="service-requests">
+        <h2>Service Requests</h2>
+        {% if customer.service_request %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service Name</th>
+                        <th>Service Professional ID</th>
+                        <th>Service Professional Name</th>
+                        <th>Service Msg</th>
+                        <th>Create At</th>
+                        <th>Completed At At</th>
+                        <th>Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for request in customer.service_request %}
+                        <tr>
+                            <td>{{ request.service.name }}</td>
+                            <td>{{ request.serv_pro_id }}</td>
+                            <td>{{ request.service_pro.user.name }}</td>
+                            <td>{{ request.service_msg }}</td>
+                            <td>{{ request.created_at }}</td>
+                            <td>{{ request.completed_at }}</td>
+                            <td>{{ request.total_cost }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No service requests available.</p>
+        {% endif %}
+    </section>
+
+    <footer class="footer">
+        <p>Report generated on {{ report_date }}.</p>
+    </footer>
+</body>
+</html>

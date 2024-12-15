@@ -1,0 +1,17 @@
+#database instance
+/instance
+
+#virtual env
+/env
+
+#.env variable
+# .env
+
+#python cahce
+__pycache__
+/application/__pycache__
+/application/api/__pycache__
+/application/modules/__pycache__
+
+#db migration folder
+/migrations

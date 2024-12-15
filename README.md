@@ -5,6 +5,8 @@ Plateforme where professionals can join and offer household services like electr
 ## Technologies used
 Backend: Flask, Vue.js, Celery, Redis, flask_jwt_extended, flask_bcrypt, flask_sqlalchemy, flask_wtf, Pinia, Vue-Router, Axios, Chart.js
 
+# Project Setup
+
 ## Add environtment variables or add a .env file with following attributes
 ```python
 SECRET_KEY=your_secret_key

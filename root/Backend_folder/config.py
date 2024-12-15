@@ -16,18 +16,18 @@ class Config:
     WTF_CSRF_ENABLED = False
     WTF_CSRF_CHECK_DEFAULT = False
     UPLOAD_FOLDER = 'application/static/upload'
-    CELERY_BROKER_URL = 'redis://localhost:6379/1'
-    CELERY_RESULT_BACKEND = 'redis://localhost:6379/2'
+    CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL')
+    CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND')
     CACHE_TYPE = 'RedisCache'
-    CACHE_REDIS_HOST = 'localhost'
-    CACHE_REDIS_PORT = 6379 
-    MAIL_SERVER = 'sandbox.smtp.mailtrap.io'
-    MAIL_PORT = 2525
-    MAIL_USERNAME = '1b8a6945cd4f54'
-    MAIL_PASSWORD = 'c2d0794ed7c53c'
-    MAIL_DEFAULT_SENDER = 'abc@gmail.com'
-    MAIL_USE_TLS = True
-    MAIL_USE_SSL = False
+    CACHE_REDIS_HOST = os.getenv('CACHE_REDIS_HOST')
+    CACHE_REDIS_PORT = os.getenv('CACHE_REDIS_PORT')
+    MAIL_SERVER = os.getenv('MAIL_SERVER')
+    MAIL_PORT = os.getenv('MAIL_PORT')
+    MAIL_USERNAME = os.getenv('MAIL_USERNAME')
+    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
+    MAIL_DEFAULT_SENDER = os.getenv('MAIL_DEFAULT_SENDER')
+    MAIL_USE_TLS = os.getenv('MAIL_USE_TLS')
+    MAIL_USE_SSL = os.getenv('MAIL_USE_SSL')
 
 class DevelopmentConfig(Config):
     JWT_COOKIE_SECURE = False

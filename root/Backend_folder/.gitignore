@@ -5,7 +5,7 @@
 /env
 
 #.env variable
-# .env
+.env
 
 #python cahce
 __pycache__

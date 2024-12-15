@@ -8,6 +8,7 @@ Backend: Flask, Vue.js, Celery, Redis, flask_jwt_extended, flask_bcrypt, flask_s
 # Project Setup
 
 ## Add environtment variables or add a .env file with following attributes
+Add .env file in root/Backend_folder
 ```python
 SECRET_KEY=your_secret_key
 JWT_SECRET_KEY=your_secret_key
